@@ -1,0 +1,36 @@
+PImage image;
+
+int srceenW = 600;
+int srceenH = 600;
+
+double height;
+double width;
+int startX;
+int startY;
+
+void setup()
+{
+  size(600,600);
+  image = loadImage("E:\\Multimedia\\ACGN\\-905239761.jpg");
+  
+  double k = image.width/(image.height*1.0);
+  if(image.height<image.width)
+  {
+    height = srceenW/k;
+    width = srceenW;
+    startX = 0;
+    startY = (int)(srceenH-height)/2;
+  }
+  else
+  {
+    height = srceenH;
+    width = srceenH*k;
+    startX = (int)(srceenW-width)/2;;
+    startY = 0;
+  }
+}
+
+void draw()
+{
+  image(image,startX,startY,(int)width,(int)height);
+}
